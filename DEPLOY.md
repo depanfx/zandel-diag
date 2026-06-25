@@ -34,9 +34,7 @@ sudo apt install -y nginx certbot python3-certbot-nginx
 ## Step 1 — Clone Repository
 
 ```bash
-sudo mkdir -p /var/www/zandel-diag
-sudo chown $USER:$USER /var/www/zandel-diag
-cd /var/www/zandel-diag
+cd /home/apotekadmin/zandel-diag
 git clone https://github.com/depanfx/zandel-diag.git .
 ```
 
@@ -45,7 +43,7 @@ git clone https://github.com/depanfx/zandel-diag.git .
 ## Step 2 — Backend Dependencies
 
 ```bash
-cd /var/www/zandel-diag/backend
+cd /home/apotekadmin/zandel-diag/backend
 npm install --omit=dev
 ```
 
@@ -93,7 +91,7 @@ GRANT ALL PRIVILEGES ON DATABASE zandeldiag TO zandeldiag_user;
 ### 4b. Jalankan skema database
 
 ```bash
-cd /var/www/zandel-diag/backend
+cd /home/apotekadmin/zandel-diag/backend
 node src/setup-db.js
 ```
 
@@ -110,7 +108,7 @@ Default superadmin created: admin / ZandelDiag2024!
 ## Step 5 — PM2 Process Manager
 
 ```bash
-cd /var/www/zandel-diag/backend
+cd /home/apotekadmin/zandel-diag/backend
 pm2 start ecosystem.config.js
 pm2 save
 pm2 startup
@@ -129,7 +127,7 @@ pm2 logs zandel-diag --lines 20
 ## Step 6 — Nginx Configuration
 
 ```bash
-sudo cp /var/www/zandel-diag/nginx/apotekz.my.id.conf /etc/nginx/sites-available/apotekz.my.id
+sudo cp /home/apotekadmin/zandel-diag/nginx/apotekz.my.id.conf /etc/nginx/sites-available/apotekz.my.id
 sudo ln -sf /etc/nginx/sites-available/apotekz.my.id /etc/nginx/sites-enabled/
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t
@@ -176,7 +174,7 @@ Login dengan: **admin / ZandelDiag2024!** — lalu ganti password segera.
 Setiap kali ada perubahan kode:
 
 ```bash
-cd /var/www/zandel-diag
+cd /home/apotekadmin/zandel-diag
 git pull origin main
 cd backend
 npm install --omit=dev
@@ -209,7 +207,7 @@ pm2 list
 
 **Frontend tidak update setelah git pull:**
 ```bash
-# Frontend adalah file statis, nginx langsung serve dari /var/www/zandel-diag/frontend
+# Frontend adalah file statis, nginx langsung serve dari /home/apotekadmin/zandel-diag/frontend
 # Tidak perlu build step — perubahan langsung aktif setelah git pull
 sudo nginx -t && sudo systemctl reload nginx
 ```

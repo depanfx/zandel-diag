@@ -38,10 +38,10 @@ Health check: `GET http://localhost:3005/api/health`
 
 ```bash
 # Di VPS (Ubuntu 22.04)
-git clone https://github.com/depanfx/zandel-diag.git /var/www/zandel-diag
+git clone https://github.com/depanfx/zandel-diag.git /home/apotekadmin/zandel-diag
 
 # Setup backend
-cd /var/www/zandel-diag/backend
+cd /home/apotekadmin/zandel-diag/backend
 cp .env.example .env
 # Edit .env untuk production
 npm install --omit=dev
@@ -51,7 +51,7 @@ pm2 start src/index.js --name zandel-diag
 pm2 save
 
 # Setup Nginx
-sudo cp /var/www/zandel-diag/nginx/apotekz.my.id.conf /etc/nginx/sites-available/apotekz.my.id
+sudo cp /home/apotekadmin/zandel-diag/nginx/apotekz.my.id.conf /etc/nginx/sites-available/apotekz.my.id
 sudo ln -s /etc/nginx/sites-available/apotekz.my.id /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
 ```
