@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zandel Service — device diagnostic tool for phones and laptops">
+  <title>Zandel Diag — Device Diagnostic Tool</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23fff'/><text x='16' y='25' text-anchor='middle' font-family='monospace' font-weight='700' font-size='22' fill='%23D4620A'>Z</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <span class="site-brand" onclick="navigateTo('home')">ZANDEL DIAG</span>
+    <div class="site-header-right" id="header-right">
+      <button class="btn btn-ghost btn-sm" onclick="navigateTo('login')">Login</button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="site-footer">
+    <span>Zandel Service &copy; 2024</span>
+    <span>v1.0.0</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/permissions.js"></script>
+  <script src="assets/js/diagnostic.js"></script>
+  <script src="assets/js/tests.js"></script>
+  <script src="assets/js/history.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
